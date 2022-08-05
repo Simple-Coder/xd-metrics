@@ -44,7 +44,7 @@ public class ExceptionsMetric {
     private Counter getOrCreateCounter(String exceptionName) {
         Counter counter = exceptionCounters.get(exceptionName);
         if (Objects.isNull(counter)) {
-            counter = Counter.builder(exceptionName).tags("id",exceptionName).description(exceptionName).register(this.meterRegistry);
+            counter = Counter.builder(name).tags("id",exceptionName).description(exceptionName).register(this.meterRegistry);
             exceptionCounters.put(exceptionName, counter);
         }
         return counter;
