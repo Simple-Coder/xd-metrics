@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Slf4j
 public class ExceptionsMetric {
-    private MeterRegistry meterRegistry;
+    private final MeterRegistry meterRegistry;
     private final String name;
 
     private final ConcurrentHashMap<String, Counter> exceptionCounters = new ConcurrentHashMap<>();
