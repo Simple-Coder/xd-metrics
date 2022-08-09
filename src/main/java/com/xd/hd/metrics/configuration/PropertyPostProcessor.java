@@ -16,12 +16,12 @@ public class PropertyPostProcessor implements EnvironmentPostProcessor {
         Properties properties = new Properties();
 
         properties.put("endpoints.prometheus.enabled", true);
-        properties.put("management.port", "9999");
+        properties.put("management.port", "${server.port}");
 
         //prometheus eureka服务发现
         properties.put("eureka.instance.metadata-map.prometheus.scrape", "true");
         properties.put("eureka.instance.metadata-map.prometheus.path", "/prometheus");
-        properties.put("eureka.instance.metadata-map.prometheus.port", "9999");
+        properties.put("eureka.instance.metadata-map.prometheus.port", "${server.port}");
         properties.put("eureka.instance.instance-id", "${spring.cloud.client.ipAddress}:${server.port}");
         properties.put("eureka.instance.prefer-ip-address", "true");
 
