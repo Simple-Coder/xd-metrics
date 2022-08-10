@@ -31,7 +31,7 @@ import java.util.List;
 @AutoConfigureBefore(EndpointWebMvcChildContextConfiguration.class)
 @Slf4j
 public class ExceptionMetricsAutoConfiguration {
-    private String metricName = "logback.exception";
+    private final String metricName = "logback.exception";
 
     @Resource(name = "exceptionStatsAppender")
     private Appender<ILoggingEvent> appender;
