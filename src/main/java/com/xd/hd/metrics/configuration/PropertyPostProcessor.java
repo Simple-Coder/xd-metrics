@@ -23,7 +23,6 @@ public class PropertyPostProcessor implements EnvironmentPostProcessor {
             properties.put("management.port", "${server.port}");
         }
         properties.put("endpoints.prometheus.enabled", true);
-        properties.put("management.port", "${server.port}");
 
         //prometheus eureka服务发现
         properties.put("eureka.instance.metadata-map.prometheus.scrape", "true");
