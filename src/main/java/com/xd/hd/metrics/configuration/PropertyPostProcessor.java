@@ -19,7 +19,7 @@ public class PropertyPostProcessor implements EnvironmentPostProcessor {
         if (StrUtil.isNotBlank(managementPort)) {
             System.out.println("management.port is" + managementPort + ",not use custom");
         } else {
-            System.out.println("management.port is empty,not use custom");
+            System.out.println("management.port is empty,will use custom");
             properties.put("management.port", "${server.port}");
         }
         properties.put("endpoints.prometheus.enabled", true);
