@@ -1,5 +1,6 @@
 package com.xd.hd.metrics.configuration;
 
+import cn.hutool.core.util.StrUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -14,7 +15,13 @@ public class PropertyPostProcessor implements EnvironmentPostProcessor {
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         Properties properties = new Properties();
-
+        String managementPort = environment.getProperty("management.port");
+        if (StrUtil.isNotBlank(managementPort)) {
+            System.out.println("management.port is" + managementPort + ",not use custom");
+        } else {
+            System.out.println("management.port is empty,not use custom");
+            properties.put("management.port", "${server.port}");
+        }
         properties.put("endpoints.prometheus.enabled", true);
         properties.put("management.port", "${server.port}");
 
@@ -33,7 +40,7 @@ public class PropertyPostProcessor implements EnvironmentPostProcessor {
 //        properties.put("spring.autoconfigure.exclude", "org.springframework.boot.actuate.autoconfigure.metrics.web.client.HttpClientMetricsAutoConfiguration");
 //        properties.put("management.endpoints.web.exposure.include", "health,info,prometheus");
 
-        PropertiesPropertySource propertiesPropertySource = new PropertiesPropertySource("hudongMetrics",properties);
+        PropertiesPropertySource propertiesPropertySource = new PropertiesPropertySource("hudongMetrics", properties);
         environment.getPropertySources().addLast(propertiesPropertySource);
     }
 }
