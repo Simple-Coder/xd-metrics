@@ -35,7 +35,12 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+    <distributionManagement>
+        <repository>
+            <id>my-nexus-releases</id>
+            <url>*******</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <!--lombok start -->
         <dependency>
