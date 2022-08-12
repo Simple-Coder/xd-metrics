@@ -33,6 +33,7 @@ public class PropertyPostProcessor implements EnvironmentPostProcessor {
             properties.put("eureka.instance.metadata-map.prometheus.port", "${server.port}");
         }
         properties.put("endpoints.prometheus.enabled", true);
+        properties.put("management.security.enabled", false);
 
         PropertiesPropertySource propertiesPropertySource = new PropertiesPropertySource("hudongMetrics", properties);
         environment.getPropertySources().addLast(propertiesPropertySource);
