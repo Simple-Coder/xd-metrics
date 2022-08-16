@@ -11,6 +11,7 @@ import java.util.Properties;
 /**
  * Created by dongxie on 2022/8/5.
  */
+@Deprecated
 public class PropertyPostProcessor implements EnvironmentPostProcessor {
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
