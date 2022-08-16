@@ -3,7 +3,8 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.xd.hd.metrics.configuration.MicrometerConfiguration,\
   com.xd.hd.metrics.exceptions.ExceptionMetricsAutoConfiguration
 
+org.springframework.boot.actuate.autoconfigure.ManagementContextConfiguration=\
+  com.xd.hd.metrics.prometheus.XdEndpointWebMvcManagementContextConfiguration
 
-
-org.springframework.boot.env.EnvironmentPostProcessor=\
-  com.xd.hd.metrics.configuration.PropertyPostProcessor
+#org.springframework.boot.env.EnvironmentPostProcessor=\
+#  com.xd.hd.metrics.configuration.PropertyPostProcessor
